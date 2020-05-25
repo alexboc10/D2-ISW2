@@ -1,0 +1,169 @@
+Dataset,#TrainingRelease,%Training,Classifier,Sampling,Feature Selection,TP,FP,TN,FN,Precision,Recall,AUC,Kappa
+bookkeeper,1,0.060,Naive Bayes,No Sampling,No Selection,38.000,6.000,159.000,100.000,0.864,0.275,0.579,0.253
+bookkeeper,1,0.060,Naive Bayes,No Sampling,Backward Search,38.000,6.000,159.000,100.000,0.864,0.275,0.656,0.253
+bookkeeper,1,0.060,Naive Bayes,Oversampling,No Selection,40.000,8.000,157.000,98.000,0.833,0.290,0.727,0.255
+bookkeeper,1,0.060,Naive Bayes,Oversampling,Backward Search,44.000,14.000,151.000,94.000,0.759,0.319,0.647,0.246
+bookkeeper,1,0.060,Naive Bayes,Undersampling,No Selection,42.000,10.000,155.000,96.000,0.808,0.304,0.739,0.257
+bookkeeper,1,0.060,Naive Bayes,Undersampling,Backward Search,40.000,8.000,157.000,98.000,0.833,0.290,0.650,0.255
+bookkeeper,1,0.060,Naive Bayes,SMOTE,No Selection,44.000,11.000,154.000,94.000,0.800,0.319,0.726,0.265
+bookkeeper,1,0.060,Naive Bayes,SMOTE,Backward Search,47.000,14.000,151.000,91.000,0.770,0.341,0.655,0.268
+bookkeeper,1,0.060,Random Forest,No Sampling,No Selection,50.000,9.000,156.000,88.000,0.847,0.362,0.656,0.323
+bookkeeper,1,0.060,Random Forest,No Sampling,Backward Search,50.000,9.000,156.000,88.000,0.847,0.362,0.656,0.323
+bookkeeper,1,0.060,Random Forest,Oversampling,No Selection,44.000,15.000,150.000,94.000,0.746,0.319,0.623,0.239
+bookkeeper,1,0.060,Random Forest,Oversampling,Backward Search,51.000,14.000,151.000,87.000,0.785,0.370,0.648,0.298
+bookkeeper,1,0.060,Random Forest,Undersampling,No Selection,53.000,11.000,154.000,85.000,0.828,0.384,0.674,0.332
+bookkeeper,1,0.060,Random Forest,Undersampling,Backward Search,50.000,13.000,152.000,88.000,0.794,0.362,0.653,0.297
+bookkeeper,1,0.060,Random Forest,SMOTE,No Selection,128.000,145.000,20.000,10.000,0.469,0.928,0.664,0.045
+bookkeeper,1,0.060,Random Forest,SMOTE,Backward Search,127.000,144.000,21.000,11.000,0.469,0.920,0.654,0.044
+bookkeeper,1,0.060,IBk,No Sampling,No Selection,51.000,10.000,155.000,87.000,0.836,0.370,0.660,0.324
+bookkeeper,1,0.060,IBk,No Sampling,Backward Search,51.000,10.000,155.000,87.000,0.836,0.370,0.659,0.324
+bookkeeper,1,0.060,IBk,Oversampling,No Selection,44.000,15.000,150.000,94.000,0.746,0.319,0.587,0.239
+bookkeeper,1,0.060,IBk,Oversampling,Backward Search,51.000,14.000,151.000,87.000,0.785,0.370,0.642,0.298
+bookkeeper,1,0.060,IBk,Undersampling,No Selection,54.000,12.000,153.000,84.000,0.818,0.391,0.671,0.333
+bookkeeper,1,0.060,IBk,Undersampling,Backward Search,51.000,14.000,151.000,87.000,0.785,0.370,0.641,0.298
+bookkeeper,1,0.060,IBk,SMOTE,No Selection,128.000,145.000,20.000,10.000,0.469,0.928,0.648,0.045
+bookkeeper,1,0.060,IBk,SMOTE,Backward Search,127.000,144.000,21.000,11.000,0.469,0.920,0.652,0.044
+bookkeeper,2,0.136,Naive Bayes,No Sampling,No Selection,138.000,41.000,236.000,43.000,0.771,0.762,0.879,0.616
+bookkeeper,2,0.136,Naive Bayes,No Sampling,Backward Search,68.000,22.000,255.000,113.000,0.756,0.376,0.792,0.325
+bookkeeper,2,0.136,Naive Bayes,Oversampling,No Selection,125.000,38.000,239.000,56.000,0.767,0.691,0.874,0.563
+bookkeeper,2,0.136,Naive Bayes,Oversampling,Backward Search,76.000,26.000,251.000,105.000,0.745,0.420,0.791,0.353
+bookkeeper,2,0.136,Naive Bayes,Undersampling,No Selection,139.000,39.000,238.000,42.000,0.781,0.768,0.880,0.629
+bookkeeper,2,0.136,Naive Bayes,Undersampling,Backward Search,69.000,25.000,252.000,112.000,0.734,0.381,0.791,0.317
+bookkeeper,2,0.136,Naive Bayes,SMOTE,No Selection,154.000,43.000,234.000,27.000,0.782,0.851,0.878,0.685
+bookkeeper,2,0.136,Naive Bayes,SMOTE,Backward Search,85.000,33.000,244.000,96.000,0.720,0.470,0.810,0.373
+bookkeeper,2,0.136,Random Forest,No Sampling,No Selection,135.000,64.000,213.000,46.000,0.678,0.746,0.809,0.506
+bookkeeper,2,0.136,Random Forest,No Sampling,Backward Search,131.000,48.000,229.000,50.000,0.732,0.724,0.799,0.552
+bookkeeper,2,0.136,Random Forest,Oversampling,No Selection,125.000,65.000,212.000,56.000,0.658,0.691,0.791,0.452
+bookkeeper,2,0.136,Random Forest,Oversampling,Backward Search,120.000,49.000,228.000,61.000,0.710,0.663,0.759,0.492
+bookkeeper,2,0.136,Random Forest,Undersampling,No Selection,142.000,78.000,199.000,39.000,0.645,0.785,0.780,0.485
+bookkeeper,2,0.136,Random Forest,Undersampling,Backward Search,131.000,64.000,213.000,50.000,0.672,0.724,0.754,0.486
+bookkeeper,2,0.136,Random Forest,SMOTE,No Selection,158.000,95.000,182.000,23.000,0.625,0.873,0.808,0.496
+bookkeeper,2,0.136,Random Forest,SMOTE,Backward Search,135.000,53.000,224.000,46.000,0.718,0.746,0.773,0.551
+bookkeeper,2,0.136,IBk,No Sampling,No Selection,110.000,79.000,198.000,71.000,0.582,0.608,0.596,0.320
+bookkeeper,2,0.136,IBk,No Sampling,Backward Search,126.000,50.000,227.000,55.000,0.716,0.696,0.735,0.518
+bookkeeper,2,0.136,IBk,Oversampling,No Selection,123.000,69.000,208.000,58.000,0.641,0.680,0.641,0.426
+bookkeeper,2,0.136,IBk,Oversampling,Backward Search,118.000,47.000,230.000,63.000,0.715,0.652,0.697,0.490
+bookkeeper,2,0.136,IBk,Undersampling,No Selection,115.000,87.000,190.000,66.000,0.569,0.635,0.603,0.315
+bookkeeper,2,0.136,IBk,Undersampling,Backward Search,128.000,64.000,213.000,53.000,0.667,0.707,0.701,0.471
+bookkeeper,2,0.136,IBk,SMOTE,No Selection,117.000,108.000,169.000,64.000,0.520,0.646,0.576,0.246
+bookkeeper,2,0.136,IBk,SMOTE,Backward Search,132.000,53.000,224.000,49.000,0.714,0.729,0.740,0.536
+bookkeeper,3,0.251,Naive Bayes,No Sampling,No Selection,118.000,28.000,249.000,63.000,0.808,0.652,0.882,0.570
+bookkeeper,3,0.251,Naive Bayes,No Sampling,Backward Search,120.000,32.000,245.000,61.000,0.789,0.663,0.888,0.563
+bookkeeper,3,0.251,Naive Bayes,Oversampling,No Selection,127.000,31.000,246.000,54.000,0.804,0.702,0.880,0.603
+bookkeeper,3,0.251,Naive Bayes,Oversampling,Backward Search,123.000,34.000,243.000,58.000,0.783,0.680,0.884,0.570
+bookkeeper,3,0.251,Naive Bayes,Undersampling,No Selection,120.000,31.000,246.000,61.000,0.795,0.663,0.885,0.567
+bookkeeper,3,0.251,Naive Bayes,Undersampling,Backward Search,121.000,34.000,243.000,60.000,0.781,0.669,0.889,0.560
+bookkeeper,3,0.251,Naive Bayes,SMOTE,No Selection,131.000,32.000,245.000,50.000,0.804,0.724,0.879,0.619
+bookkeeper,3,0.251,Naive Bayes,SMOTE,Backward Search,146.000,42.000,235.000,35.000,0.777,0.807,0.887,0.651
+bookkeeper,3,0.251,Random Forest,No Sampling,No Selection,163.000,1.000,276.000,18.000,0.994,0.901,0.970,0.912
+bookkeeper,3,0.251,Random Forest,No Sampling,Backward Search,158.000,4.000,273.000,23.000,0.975,0.873,0.954,0.874
+bookkeeper,3,0.251,Random Forest,Oversampling,No Selection,157.000,16.000,261.000,24.000,0.908,0.867,0.950,0.816
+bookkeeper,3,0.251,Random Forest,Oversampling,Backward Search,157.000,10.000,267.000,24.000,0.940,0.867,0.950,0.843
+bookkeeper,3,0.251,Random Forest,Undersampling,No Selection,165.000,16.000,261.000,16.000,0.912,0.912,0.963,0.854
+bookkeeper,3,0.251,Random Forest,Undersampling,Backward Search,158.000,13.000,264.000,23.000,0.924,0.873,0.943,0.834
+bookkeeper,3,0.251,Random Forest,SMOTE,No Selection,163.000,1.000,276.000,18.000,0.994,0.901,0.972,0.912
+bookkeeper,3,0.251,Random Forest,SMOTE,Backward Search,160.000,7.000,270.000,21.000,0.958,0.884,0.957,0.870
+bookkeeper,3,0.251,IBk,No Sampling,No Selection,163.000,1.000,276.000,18.000,0.994,0.901,0.983,0.912
+bookkeeper,3,0.251,IBk,No Sampling,Backward Search,160.000,6.000,271.000,21.000,0.964,0.884,0.960,0.875
+bookkeeper,3,0.251,IBk,Oversampling,No Selection,155.000,18.000,259.000,26.000,0.896,0.856,0.921,0.797
+bookkeeper,3,0.251,IBk,Oversampling,Backward Search,155.000,11.000,266.000,26.000,0.934,0.856,0.932,0.829
+bookkeeper,3,0.251,IBk,Undersampling,No Selection,166.000,14.000,263.000,15.000,0.922,0.917,0.965,0.867
+bookkeeper,3,0.251,IBk,Undersampling,Backward Search,160.000,15.000,262.000,21.000,0.914,0.884,0.946,0.835
+bookkeeper,3,0.251,IBk,SMOTE,No Selection,166.000,5.000,272.000,15.000,0.971,0.917,0.983,0.908
+bookkeeper,3,0.251,IBk,SMOTE,Backward Search,160.000,7.000,270.000,21.000,0.958,0.884,0.958,0.870
+bookkeeper,4,0.365,Naive Bayes,No Sampling,No Selection,87.000,17.000,471.000,16.000,0.837,0.845,0.954,0.807
+bookkeeper,4,0.365,Naive Bayes,No Sampling,Backward Search,88.000,22.000,466.000,15.000,0.800,0.854,0.954,0.788
+bookkeeper,4,0.365,Naive Bayes,Oversampling,No Selection,87.000,17.000,471.000,16.000,0.837,0.845,0.958,0.807
+bookkeeper,4,0.365,Naive Bayes,Oversampling,Backward Search,89.000,25.000,463.000,14.000,0.781,0.864,0.952,0.780
+bookkeeper,4,0.365,Naive Bayes,Undersampling,No Selection,87.000,18.000,470.000,16.000,0.829,0.845,0.957,0.802
+bookkeeper,4,0.365,Naive Bayes,Undersampling,Backward Search,89.000,18.000,470.000,14.000,0.832,0.864,0.954,0.815
+bookkeeper,4,0.365,Naive Bayes,SMOTE,No Selection,89.000,19.000,469.000,14.000,0.824,0.864,0.967,0.810
+bookkeeper,4,0.365,Naive Bayes,SMOTE,Backward Search,89.000,24.000,464.000,14.000,0.788,0.864,0.954,0.785
+bookkeeper,4,0.365,Random Forest,No Sampling,No Selection,92.000,37.000,451.000,11.000,0.713,0.893,0.929,0.743
+bookkeeper,4,0.365,Random Forest,No Sampling,Backward Search,92.000,41.000,447.000,11.000,0.692,0.893,0.928,0.726
+bookkeeper,4,0.365,Random Forest,Oversampling,No Selection,89.000,32.000,456.000,14.000,0.736,0.864,0.932,0.747
+bookkeeper,4,0.365,Random Forest,Oversampling,Backward Search,93.000,42.000,446.000,10.000,0.689,0.903,0.926,0.728
+bookkeeper,4,0.365,Random Forest,Undersampling,No Selection,92.000,44.000,444.000,11.000,0.676,0.893,0.931,0.713
+bookkeeper,4,0.365,Random Forest,Undersampling,Backward Search,92.000,43.000,445.000,11.000,0.681,0.893,0.938,0.717
+bookkeeper,4,0.365,Random Forest,SMOTE,No Selection,93.000,44.000,444.000,10.000,0.679,0.903,0.942,0.719
+bookkeeper,4,0.365,Random Forest,SMOTE,Backward Search,93.000,42.000,446.000,10.000,0.689,0.903,0.923,0.728
+bookkeeper,4,0.365,IBk,No Sampling,No Selection,90.000,29.000,459.000,13.000,0.756,0.874,0.901,0.767
+bookkeeper,4,0.365,IBk,No Sampling,Backward Search,92.000,38.000,450.000,11.000,0.708,0.893,0.914,0.739
+bookkeeper,4,0.365,IBk,Oversampling,No Selection,89.000,36.000,452.000,14.000,0.712,0.864,0.887,0.729
+bookkeeper,4,0.365,IBk,Oversampling,Backward Search,93.000,38.000,450.000,10.000,0.710,0.903,0.911,0.745
+bookkeeper,4,0.365,IBk,Undersampling,No Selection,90.000,35.000,453.000,13.000,0.720,0.874,0.904,0.740
+bookkeeper,4,0.365,IBk,Undersampling,Backward Search,92.000,40.000,448.000,11.000,0.697,0.893,0.913,0.730
+bookkeeper,4,0.365,IBk,SMOTE,No Selection,91.000,54.000,434.000,12.000,0.628,0.883,0.905,0.666
+bookkeeper,4,0.365,IBk,SMOTE,Backward Search,93.000,38.000,450.000,10.000,0.710,0.903,0.913,0.745
+bookkeeper,5,0.513,Naive Bayes,No Sampling,No Selection,9.000,27.000,560.000,20.000,0.250,0.310,0.730,0.237
+bookkeeper,5,0.513,Naive Bayes,No Sampling,Backward Search,9.000,29.000,558.000,20.000,0.237,0.310,0.773,0.227
+bookkeeper,5,0.513,Naive Bayes,Oversampling,No Selection,9.000,27.000,560.000,20.000,0.250,0.310,0.817,0.237
+bookkeeper,5,0.513,Naive Bayes,Oversampling,Backward Search,9.000,29.000,558.000,20.000,0.237,0.310,0.784,0.227
+bookkeeper,5,0.513,Naive Bayes,Undersampling,No Selection,9.000,29.000,558.000,20.000,0.237,0.310,0.763,0.227
+bookkeeper,5,0.513,Naive Bayes,Undersampling,Backward Search,9.000,30.000,557.000,20.000,0.231,0.310,0.776,0.223
+bookkeeper,5,0.513,Naive Bayes,SMOTE,No Selection,9.000,30.000,557.000,20.000,0.231,0.310,0.729,0.223
+bookkeeper,5,0.513,Naive Bayes,SMOTE,Backward Search,9.000,30.000,557.000,20.000,0.231,0.310,0.777,0.223
+bookkeeper,5,0.513,Random Forest,No Sampling,No Selection,12.000,32.000,555.000,17.000,0.273,0.414,0.738,0.288
+bookkeeper,5,0.513,Random Forest,No Sampling,Backward Search,16.000,57.000,530.000,13.000,0.219,0.552,0.749,0.264
+bookkeeper,5,0.513,Random Forest,Oversampling,No Selection,10.000,35.000,552.000,19.000,0.222,0.345,0.751,0.226
+bookkeeper,5,0.513,Random Forest,Oversampling,Backward Search,17.000,61.000,526.000,12.000,0.218,0.586,0.766,0.267
+bookkeeper,5,0.513,Random Forest,Undersampling,No Selection,12.000,49.000,538.000,17.000,0.197,0.414,0.765,0.217
+bookkeeper,5,0.513,Random Forest,Undersampling,Backward Search,17.000,71.000,516.000,12.000,0.193,0.586,0.767,0.237
+bookkeeper,5,0.513,Random Forest,SMOTE,No Selection,11.000,38.000,549.000,18.000,0.224,0.379,0.647,0.237
+bookkeeper,5,0.513,Random Forest,SMOTE,Backward Search,16.000,55.000,532.000,13.000,0.225,0.552,0.756,0.271
+bookkeeper,5,0.513,IBk,No Sampling,No Selection,9.000,32.000,555.000,20.000,0.220,0.310,0.569,0.214
+bookkeeper,5,0.513,IBk,No Sampling,Backward Search,17.000,55.000,532.000,12.000,0.236,0.586,0.747,0.289
+bookkeeper,5,0.513,IBk,Oversampling,No Selection,9.000,41.000,546.000,20.000,0.180,0.310,0.646,0.179
+bookkeeper,5,0.513,IBk,Oversampling,Backward Search,18.000,53.000,534.000,11.000,0.254,0.621,0.782,0.314
+bookkeeper,5,0.513,IBk,Undersampling,No Selection,10.000,48.000,539.000,19.000,0.172,0.345,0.659,0.178
+bookkeeper,5,0.513,IBk,Undersampling,Backward Search,18.000,71.000,516.000,11.000,0.202,0.621,0.762,0.252
+bookkeeper,5,0.513,IBk,SMOTE,No Selection,12.000,52.000,535.000,17.000,0.188,0.414,0.616,0.207
+bookkeeper,5,0.513,IBk,SMOTE,Backward Search,17.000,57.000,530.000,12.000,0.230,0.586,0.745,0.281
+bookkeeper,6,0.668,Naive Bayes,No Sampling,No Selection,11.000,26.000,599.000,16.000,0.297,0.407,0.835,0.311
+bookkeeper,6,0.668,Naive Bayes,No Sampling,Backward Search,11.000,26.000,599.000,16.000,0.297,0.407,0.874,0.311
+bookkeeper,6,0.668,Naive Bayes,Oversampling,No Selection,11.000,26.000,599.000,16.000,0.297,0.407,0.831,0.311
+bookkeeper,6,0.668,Naive Bayes,Oversampling,Backward Search,12.000,26.000,599.000,15.000,0.316,0.444,0.874,0.337
+bookkeeper,6,0.668,Naive Bayes,Undersampling,No Selection,11.000,27.000,598.000,16.000,0.289,0.407,0.838,0.305
+bookkeeper,6,0.668,Naive Bayes,Undersampling,Backward Search,12.000,31.000,594.000,15.000,0.279,0.444,0.874,0.308
+bookkeeper,6,0.668,Naive Bayes,SMOTE,No Selection,11.000,28.000,597.000,16.000,0.282,0.407,0.833,0.299
+bookkeeper,6,0.668,Naive Bayes,SMOTE,Backward Search,12.000,29.000,596.000,15.000,0.293,0.444,0.874,0.319
+bookkeeper,6,0.668,Random Forest,No Sampling,No Selection,7.000,7.000,618.000,20.000,0.500,0.259,0.729,0.322
+bookkeeper,6,0.668,Random Forest,No Sampling,Backward Search,10.000,14.000,611.000,17.000,0.417,0.370,0.745,0.368
+bookkeeper,6,0.668,Random Forest,Oversampling,No Selection,5.000,17.000,608.000,22.000,0.227,0.185,0.775,0.173
+bookkeeper,6,0.668,Random Forest,Oversampling,Backward Search,11.000,21.000,604.000,16.000,0.344,0.407,0.674,0.343
+bookkeeper,6,0.668,Random Forest,Undersampling,No Selection,10.000,20.000,605.000,17.000,0.333,0.370,0.827,0.321
+bookkeeper,6,0.668,Random Forest,Undersampling,Backward Search,15.000,32.000,593.000,12.000,0.319,0.556,0.765,0.372
+bookkeeper,6,0.668,Random Forest,SMOTE,No Selection,7.000,20.000,605.000,20.000,0.259,0.259,0.773,0.227
+bookkeeper,6,0.668,Random Forest,SMOTE,Backward Search,9.000,15.000,610.000,18.000,0.375,0.333,0.712,0.327
+bookkeeper,6,0.668,IBk,No Sampling,No Selection,8.000,19.000,606.000,19.000,0.296,0.296,0.657,0.266
+bookkeeper,6,0.668,IBk,No Sampling,Backward Search,12.000,13.000,612.000,15.000,0.480,0.444,0.581,0.439
+bookkeeper,6,0.668,IBk,Oversampling,No Selection,7.000,18.000,607.000,20.000,0.280,0.259,0.634,0.239
+bookkeeper,6,0.668,IBk,Oversampling,Backward Search,12.000,20.000,605.000,15.000,0.375,0.444,0.565,0.379
+bookkeeper,6,0.668,IBk,Undersampling,No Selection,11.000,30.000,595.000,16.000,0.268,0.407,0.708,0.288
+bookkeeper,6,0.668,IBk,Undersampling,Backward Search,15.000,29.000,596.000,12.000,0.341,0.556,0.665,0.391
+bookkeeper,6,0.668,IBk,SMOTE,No Selection,9.000,56.000,569.000,18.000,0.138,0.333,0.638,0.146
+bookkeeper,6,0.668,IBk,SMOTE,Backward Search,13.000,14.000,611.000,14.000,0.481,0.481,0.608,0.459
+bookkeeper,7,0.831,Naive Bayes,No Sampling,No Selection,9.000,32.000,624.000,10.000,0.220,0.474,0.857,0.272
+bookkeeper,7,0.831,Naive Bayes,No Sampling,Backward Search,9.000,36.000,620.000,10.000,0.200,0.474,0.893,0.252
+bookkeeper,7,0.831,Naive Bayes,Oversampling,No Selection,9.000,37.000,619.000,10.000,0.196,0.474,0.846,0.247
+bookkeeper,7,0.831,Naive Bayes,Oversampling,Backward Search,9.000,44.000,612.000,10.000,0.170,0.474,0.893,0.218
+bookkeeper,7,0.831,Naive Bayes,Undersampling,No Selection,9.000,41.000,615.000,10.000,0.180,0.474,0.840,0.229
+bookkeeper,7,0.831,Naive Bayes,Undersampling,Backward Search,10.000,48.000,608.000,9.000,0.172,0.526,0.895,0.227
+bookkeeper,7,0.831,Naive Bayes,SMOTE,No Selection,9.000,42.000,614.000,10.000,0.176,0.474,0.854,0.225
+bookkeeper,7,0.831,Naive Bayes,SMOTE,Backward Search,10.000,47.000,609.000,9.000,0.175,0.526,0.893,0.231
+bookkeeper,7,0.831,Random Forest,No Sampling,No Selection,10.000,16.000,640.000,9.000,0.385,0.526,0.916,0.426
+bookkeeper,7,0.831,Random Forest,No Sampling,Backward Search,11.000,23.000,633.000,8.000,0.324,0.579,0.945,0.393
+bookkeeper,7,0.831,Random Forest,Oversampling,No Selection,9.000,20.000,636.000,10.000,0.310,0.474,0.914,0.353
+bookkeeper,7,0.831,Random Forest,Oversampling,Backward Search,10.000,25.000,631.000,9.000,0.286,0.526,0.943,0.347
+bookkeeper,7,0.831,Random Forest,Undersampling,No Selection,14.000,44.000,612.000,5.000,0.241,0.737,0.924,0.335
+bookkeeper,7,0.831,Random Forest,Undersampling,Backward Search,16.000,71.000,585.000,3.000,0.184,0.842,0.926,0.268
+bookkeeper,7,0.831,Random Forest,SMOTE,No Selection,9.000,32.000,624.000,10.000,0.220,0.474,0.899,0.272
+bookkeeper,7,0.831,Random Forest,SMOTE,Backward Search,11.000,24.000,632.000,8.000,0.314,0.579,0.942,0.385
+bookkeeper,7,0.831,IBk,No Sampling,No Selection,10.000,26.000,630.000,9.000,0.278,0.526,0.759,0.339
+bookkeeper,7,0.831,IBk,No Sampling,Backward Search,12.000,27.000,629.000,7.000,0.308,0.632,0.809,0.391
+bookkeeper,7,0.831,IBk,Oversampling,No Selection,10.000,21.000,635.000,9.000,0.323,0.526,0.751,0.378
+bookkeeper,7,0.831,IBk,Oversampling,Backward Search,11.000,23.000,633.000,8.000,0.324,0.579,0.769,0.393
+bookkeeper,7,0.831,IBk,Undersampling,No Selection,13.000,51.000,605.000,6.000,0.203,0.684,0.804,0.282
+bookkeeper,7,0.831,IBk,Undersampling,Backward Search,15.000,58.000,598.000,4.000,0.205,0.789,0.854,0.295
+bookkeeper,7,0.831,IBk,SMOTE,No Selection,11.000,47.000,609.000,8.000,0.190,0.579,0.762,0.254
+bookkeeper,7,0.831,IBk,SMOTE,Backward Search,12.000,33.000,623.000,7.000,0.267,0.632,0.804,0.349
