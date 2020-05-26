@@ -20,7 +20,6 @@ import weka.filters.supervised.instance.SMOTE;
 import weka.filters.supervised.instance.SpreadSubsample;
 
 import java.io.FileWriter;
-import java.io.IOException;
 import java.util.List;
 import java.util.Scanner;
 import java.util.logging.Logger;
@@ -83,7 +82,20 @@ public class Measurements {
         return new Instances[0];
     }
 
-    private static void computeClassifier(String projectName, int numTraining, FileWriter csvWriter, Instances training, Instances testing, String classifier) throws IOException {
+    private static Classifier getClassifier(String classifier) {
+        switch (classifier) {
+            case "Naive Bayes":
+                return new NaiveBayes();
+            case "Random Forest":
+                return new RandomForest();
+            case "IBk":
+                return new IBk();
+            default:
+                return null;
+        }
+    }
+
+    private static void computeClassifier(String projectName, int numTraining, FileWriter csvWriter, Instances training, Instances testing, String classifier) {
         FilteredClassifier fc = new FilteredClassifier();
         Instances[] filteredData;
         Instances actTraining;
@@ -92,19 +104,7 @@ public class Measurements {
         String sampling = "";
         Classifier method = null;
 
-        switch (classifier) {
-            case "Naive Bayes":
-                method = new NaiveBayes();
-                break;
-            case "Random Forest":
-                method = new RandomForest();
-                break;
-            case "IBk":
-                method = new IBk();
-                break;
-            default:
-                System.exit(1);
-        }
+        method = getClassifier(classifier);
 
         int[] stats = computeBuggy(training, testing);
         fc.setClassifier(method);
@@ -191,19 +191,15 @@ public class Measurements {
                         actTesting = filteredData[1];
                     }
 
-                    eval = null;
-
-                    if (!sampling.equals(NO_SAMPLING)) {
-                        fc.buildClassifier(actTraining);
-                        eval = new Evaluation(actTraining);
-                        eval.evaluateModel(fc, actTesting);
-                    } else {
+                    if (sampling.equals(NO_SAMPLING)) {
                         method.buildClassifier(actTraining);
                         eval = new Evaluation(actTraining);
                         eval.evaluateModel(method, actTesting);
+                    } else {
+                        fc.buildClassifier(actTraining);
+                        eval = new Evaluation(actTraining);
+                        eval.evaluateModel(fc, actTesting);
                     }
-
-                    assert eval != null;
 
                     csvWriter.append(String.format("%.3f", eval.numTruePositives(0)));
                     csvWriter.append(",");
