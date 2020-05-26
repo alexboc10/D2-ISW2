@@ -102,7 +102,7 @@ public class Measurements {
         Instances actTesting;
         Evaluation eval;
         String sampling = "";
-        Classifier method = null;
+        Classifier method;
 
         method = getClassifier(classifier);
 
@@ -192,6 +192,8 @@ public class Measurements {
                     }
 
                     if (sampling.equals(NO_SAMPLING)) {
+                        assert method != null;
+                        
                         method.buildClassifier(actTraining);
                         eval = new Evaluation(actTraining);
                         eval.evaluateModel(method, actTesting);
