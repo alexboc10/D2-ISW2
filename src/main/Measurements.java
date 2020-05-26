@@ -109,7 +109,7 @@ public class Measurements {
         int[] stats = computeBuggy(training, testing);
         fc.setClassifier(method);
 
-        for (int n=1; n<5; n++) {
+        for (int n = 1; n < 5; n++) {
             actTraining = training;
             actTesting = testing;
 
@@ -125,8 +125,8 @@ public class Measurements {
 
                         Resample resample = new Resample();
                         resample.setNoReplacement(false);
-                        String[] opt1 = new String[]{ "-B", "1.0"};
-                        String[] opt2 = new String[]{ "-Z", Double.toString(computeRatio(stats[0], stats[1], training.size())*100*2)};
+                        String[] opt1 = new String[]{"-B", "1.0"};
+                        String[] opt2 = new String[]{"-Z", Double.toString(computeRatio(stats[0], stats[1], training.size()) * 100 * 2)};
                         resample.setOptions(opt1);
 
                         resample.setOptions(opt2);
@@ -140,7 +140,7 @@ public class Measurements {
                         sampling = UNDERSAMPLING;
 
                         SpreadSubsample spreadSubsample = new SpreadSubsample();
-                        String[] opt = new String[]{ "-M", "1.0"};
+                        String[] opt = new String[]{"-M", "1.0"};
                         spreadSubsample.setOptions(opt);
 
                         spreadSubsample.setInputFormat(actTraining);
@@ -159,43 +159,40 @@ public class Measurements {
                     default:
                         System.exit(1);
                 }
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
 
-            for (int m=1;m<3;m++) {
-                csvWriter.append(projectName);
-                csvWriter.append(",");
-                csvWriter.append(Integer.toString(numTraining));
-                csvWriter.append(",");
-                csvWriter.append(String.format("%.3f",(double)training.size()/(double)numInstances));
-                csvWriter.append(",");
-                csvWriter.append(String.format("%.3f",(double)stats[0]/(double)training.size()));
-                csvWriter.append(",");
-                csvWriter.append(String.format("%.3f",(double)stats[2]/(double)training.size()));
-                csvWriter.append(",");
-                csvWriter.append(classifier);
-                csvWriter.append(",");
-                csvWriter.append(sampling);
-                csvWriter.append(",");
-
-                if (m==1) {
-                    //No Selection
-                    csvWriter.append(NO_SELECTION);
+                for (int m = 1; m < 3; m++) {
+                    csvWriter.append(projectName);
                     csvWriter.append(",");
-                } else {
-                    //Backward search
-                    csvWriter.append(BACKWARD);
+                    csvWriter.append(Integer.toString(numTraining));
+                    csvWriter.append(",");
+                    csvWriter.append(String.format("%.3f", (double) training.size() / (double) numInstances));
+                    csvWriter.append(",");
+                    csvWriter.append(String.format("%.3f", (double) stats[0] / (double) training.size()));
+                    csvWriter.append(",");
+                    csvWriter.append(String.format("%.3f", (double) stats[2] / (double) training.size()));
+                    csvWriter.append(",");
+                    csvWriter.append(classifier);
+                    csvWriter.append(",");
+                    csvWriter.append(sampling);
                     csvWriter.append(",");
 
-                    filteredData = computeSelection(actTraining, actTesting);
+                    if (m == 1) {
+                        //No Selection
+                        csvWriter.append(NO_SELECTION);
+                        csvWriter.append(",");
+                    } else {
+                        //Backward search
+                        csvWriter.append(BACKWARD);
+                        csvWriter.append(",");
 
-                    actTraining = filteredData[0];
-                    actTesting = filteredData[1];
-                }
+                        filteredData = computeSelection(actTraining, actTesting);
 
-                eval = null;
-                try {
+                        actTraining = filteredData[0];
+                        actTesting = filteredData[1];
+                    }
+
+                    eval = null;
+
                     if (!sampling.equals(NO_SAMPLING)) {
                         fc.buildClassifier(actTraining);
                         eval = new Evaluation(actTraining);
@@ -205,30 +202,29 @@ public class Measurements {
                         eval = new Evaluation(actTraining);
                         eval.evaluateModel(method, actTesting);
                     }
-                } catch (Exception e) {
-                    e.printStackTrace();
+
+                    assert eval != null;
+
+                    csvWriter.append(String.format("%.3f", eval.numTruePositives(0)));
+                    csvWriter.append(",");
+                    csvWriter.append(String.format("%.3f", eval.numFalsePositives(0)));
+                    csvWriter.append(",");
+                    csvWriter.append(String.format("%.3f", eval.numTrueNegatives(0)));
+                    csvWriter.append(",");
+                    csvWriter.append(String.format("%.3f", eval.numFalseNegatives(0)));
+                    csvWriter.append(",");
+                    csvWriter.append(String.format("%.3f", eval.precision(0)));
+                    csvWriter.append(",");
+                    csvWriter.append(String.format("%.3f", eval.recall(0)));
+                    csvWriter.append(",");
+                    csvWriter.append(String.format("%.3f", eval.areaUnderROC(0)));
+                    csvWriter.append(",");
+                    csvWriter.append(String.format("%.3f", eval.kappa()));
+                    csvWriter.append("\n");
                 }
-
-                assert eval != null;
-
-                csvWriter.append(String.format("%.3f", eval.numTruePositives(0)));
-                csvWriter.append(",");
-                csvWriter.append(String.format("%.3f", eval.numFalsePositives(0)));
-                csvWriter.append(",");
-                csvWriter.append(String.format("%.3f", eval.numTrueNegatives(0)));
-                csvWriter.append(",");
-                csvWriter.append(String.format("%.3f", eval.numFalseNegatives(0)));
-                csvWriter.append(",");
-                csvWriter.append(String.format("%.3f", eval.precision(0)));
-                csvWriter.append(",");
-                csvWriter.append(String.format("%.3f", eval.recall(0)));
-                csvWriter.append(",");
-                csvWriter.append(String.format("%.3f", eval.areaUnderROC(0)));
-                csvWriter.append(",");
-                csvWriter.append(String.format("%.3f", eval.kappa()));
-                csvWriter.append("\n");
+            } catch (Exception e) {
+                e.printStackTrace();
             }
-
         }
     }
 
@@ -276,7 +272,7 @@ public class Measurements {
         return stats;
     }
 
-    public static void applyWeka(Project project) throws Exception {
+    public static void applyWeka(Project project) {
         int numAttributes;
         int numReleases;
 
@@ -343,7 +339,7 @@ public class Measurements {
             }
 
             csvEvaluation.flush();
-        } catch (IOException e) {
+        } catch (Exception e) {
             e.printStackTrace();
         }
     }
