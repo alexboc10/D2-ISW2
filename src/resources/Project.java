@@ -113,6 +113,106 @@ public class Project {
         }
     }
 
+    private int prepareCSV(FileWriter csvFeatures, Release release) {
+        int count = 0;
+
+        try(FileWriter csvRelease = new FileWriter("/home/alex/code/intelliJ/projects/D2-ISW2/data/releaseSets/" + this.name + "_release_" + release.getIndex() + ".csv")) {
+            csvRelease.append("Release");
+            csvRelease.append(",");
+            csvRelease.append("File");
+            csvRelease.append(",");
+            csvRelease.append("NAuth");
+            csvRelease.append(",");
+            csvRelease.append("NR");
+            csvRelease.append(",");
+            csvRelease.append("Age");
+            csvRelease.append(",");
+            csvRelease.append("Size");
+            csvRelease.append(",");
+            csvRelease.append("NFix");
+            csvRelease.append(",");
+            csvRelease.append("LOC_Added");
+            csvRelease.append(",");
+            csvRelease.append("ChgSetSize");
+            csvRelease.append(",");
+            csvRelease.append("Max_ChgSetSize");
+            csvRelease.append(",");
+            csvRelease.append("Avg_ChgSetSize");
+            csvRelease.append(",");
+            csvRelease.append("Buggy");
+            csvRelease.append("\n");
+
+            for (FileItem item : release.getFileItems()) {
+                count++;
+
+                csvFeatures.append(Integer.toString(release.getIndex()));
+                csvFeatures.append(",");
+                csvFeatures.append(item.getName());
+                csvFeatures.append(",");
+                csvFeatures.append(Integer.toString(item.getNumOfAuthors()));
+                csvFeatures.append(",");
+                csvFeatures.append(Integer.toString(item.getTouchingCommits()));
+                csvFeatures.append(",");
+                csvFeatures.append(Long.toString(item.getAge()));
+                csvFeatures.append(",");
+                csvFeatures.append(Integer.toString(item.getSize()));
+                csvFeatures.append(",");
+                csvFeatures.append(Integer.toString(item.getBugFixes()));
+                csvFeatures.append(",");
+                csvFeatures.append(Integer.toString(item.getAddedLoc()));
+                csvFeatures.append(",");
+                csvFeatures.append(Integer.toString(item.getChangeSetSize()));
+                csvFeatures.append(",");
+                csvFeatures.append(Integer.toString(item.getMaxChangeSetSize()));
+                csvFeatures.append(",");
+                csvFeatures.append(Integer.toString(item.getAvgChangeSetSize()));
+                csvFeatures.append(",");
+                if (item.isBuggy()) {
+                    csvFeatures.append("Yes");
+                } else {
+                    csvFeatures.append("No");
+                }
+                csvFeatures.append("\n");
+
+                csvRelease.append(Integer.toString(release.getIndex()));
+                csvRelease.append(",");
+                csvRelease.append(item.getName());
+                csvRelease.append(",");
+                csvRelease.append(Integer.toString(item.getNumOfAuthors()));
+                csvRelease.append(",");
+                csvRelease.append(Integer.toString(item.getTouchingCommits()));
+                csvRelease.append(",");
+                csvRelease.append(Long.toString(item.getAge()));
+                csvRelease.append(",");
+                csvRelease.append(Integer.toString(item.getSize()));
+                csvRelease.append(",");
+                csvRelease.append(Integer.toString(item.getBugFixes()));
+                csvRelease.append(",");
+                csvRelease.append(Integer.toString(item.getAddedLoc()));
+                csvRelease.append(",");
+                csvRelease.append(Integer.toString(item.getChangeSetSize()));
+                csvRelease.append(",");
+                csvRelease.append(Integer.toString(item.getMaxChangeSetSize()));
+                csvRelease.append(",");
+                csvRelease.append(Integer.toString(item.getAvgChangeSetSize()));
+                csvRelease.append(",");
+                if (item.isBuggy()) {
+                    csvRelease.append("Yes");
+                } else {
+                    csvRelease.append("No");
+                }
+                csvRelease.append("\n");
+            }
+
+            csvRelease.flush();
+            csvToArff("/home/alex/code/intelliJ/projects/D2-ISW2/data/releaseSets/" + this.name + "_release_" + release.getIndex() + ".csv");
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        return count;
+    }
+
     public int writeBugginess() {
         int count = 0;
 
@@ -150,99 +250,7 @@ public class Project {
                     continue;
                 }
 
-                try(FileWriter csvRelease = new FileWriter("/home/alex/code/intelliJ/projects/D2-ISW2/data/releaseSets/" + this.name + "_release_" + release.getIndex() + ".csv")) {
-                    csvRelease.append("Release");
-                    csvRelease.append(",");
-                    csvRelease.append("File");
-                    csvRelease.append(",");
-                    csvRelease.append("NAuth");
-                    csvRelease.append(",");
-                    csvRelease.append("NR");
-                    csvRelease.append(",");
-                    csvRelease.append("Age");
-                    csvRelease.append(",");
-                    csvRelease.append("Size");
-                    csvRelease.append(",");
-                    csvRelease.append("NFix");
-                    csvRelease.append(",");
-                    csvRelease.append("LOC_Added");
-                    csvRelease.append(",");
-                    csvRelease.append("ChgSetSize");
-                    csvRelease.append(",");
-                    csvRelease.append("Max_ChgSetSize");
-                    csvRelease.append(",");
-                    csvRelease.append("Avg_ChgSetSize");
-                    csvRelease.append(",");
-                    csvRelease.append("Buggy");
-                    csvRelease.append("\n");
-
-                    for (FileItem item : release.getFileItems()) {
-                        count++;
-
-                        csvFeatures.append(Integer.toString(release.getIndex()));
-                        csvFeatures.append(",");
-                        csvFeatures.append(item.getName());
-                        csvFeatures.append(",");
-                        csvFeatures.append(Integer.toString(item.getNumOfAuthors()));
-                        csvFeatures.append(",");
-                        csvFeatures.append(Integer.toString(item.getTouchingCommits()));
-                        csvFeatures.append(",");
-                        csvFeatures.append(Long.toString(item.getAge()));
-                        csvFeatures.append(",");
-                        csvFeatures.append(Integer.toString(item.getSize()));
-                        csvFeatures.append(",");
-                        csvFeatures.append(Integer.toString(item.getBugFixes()));
-                        csvFeatures.append(",");
-                        csvFeatures.append(Integer.toString(item.getAddedLoc()));
-                        csvFeatures.append(",");
-                        csvFeatures.append(Integer.toString(item.getChangeSetSize()));
-                        csvFeatures.append(",");
-                        csvFeatures.append(Integer.toString(item.getMaxChangeSetSize()));
-                        csvFeatures.append(",");
-                        csvFeatures.append(Integer.toString(item.getAvgChangeSetSize()));
-                        csvFeatures.append(",");
-                        if (item.isBuggy()) {
-                            csvFeatures.append("Yes");
-                        } else {
-                            csvFeatures.append("No");
-                        }
-                        csvFeatures.append("\n");
-
-                        csvRelease.append(Integer.toString(release.getIndex()));
-                        csvRelease.append(",");
-                        csvRelease.append(item.getName());
-                        csvRelease.append(",");
-                        csvRelease.append(Integer.toString(item.getNumOfAuthors()));
-                        csvRelease.append(",");
-                        csvRelease.append(Integer.toString(item.getTouchingCommits()));
-                        csvRelease.append(",");
-                        csvRelease.append(Long.toString(item.getAge()));
-                        csvRelease.append(",");
-                        csvRelease.append(Integer.toString(item.getSize()));
-                        csvRelease.append(",");
-                        csvRelease.append(Integer.toString(item.getBugFixes()));
-                        csvRelease.append(",");
-                        csvRelease.append(Integer.toString(item.getAddedLoc()));
-                        csvRelease.append(",");
-                        csvRelease.append(Integer.toString(item.getChangeSetSize()));
-                        csvRelease.append(",");
-                        csvRelease.append(Integer.toString(item.getMaxChangeSetSize()));
-                        csvRelease.append(",");
-                        csvRelease.append(Integer.toString(item.getAvgChangeSetSize()));
-                        csvRelease.append(",");
-                        if (item.isBuggy()) {
-                            csvRelease.append("Yes");
-                        } else {
-                            csvRelease.append("No");
-                        }
-                        csvRelease.append("\n");
-                    }
-
-                    csvRelease.flush();
-                    csvToArff("/home/alex/code/intelliJ/projects/D2-ISW2/data/releaseSets/" + this.name + "_release_" + release.getIndex() + ".csv");
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
+                count = count + prepareCSV(csvFeatures, release);
             }
 
             csvFeatures.flush();

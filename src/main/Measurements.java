@@ -34,7 +34,7 @@ public class Measurements {
     private static final String SMOTE = "SMOTE";
     private static final String NO_SELECTION = "No Selection";
     private static final String BACKWARD = "Backward Selection";
-    private static final String RELEASES_PATH = "/home/alex/code/intelliJ/projects/D2-ISW2/data/releaseSets/";
+    private static final String RELEASES_PATH = System.getProperty("user.dir") + "/data/releaseSets/";
 
     public static void main(String[] args) throws Exception {
 
@@ -80,10 +80,10 @@ public class Measurements {
         } catch (Exception e) {
             e.printStackTrace();
         }
-        return null;
+        return new Instances[0];
     }
 
-    private static void computeClassifier(String projectName, int numTraining, FileWriter csvWriter, Instances training, Instances testing, String classifier) throws Exception {
+    private static void computeClassifier(String projectName, int numTraining, FileWriter csvWriter, Instances training, Instances testing, String classifier) throws IOException {
         FilteredClassifier fc = new FilteredClassifier();
         Instances[] filteredData;
         Instances actTraining;
@@ -113,49 +113,54 @@ public class Measurements {
             actTraining = training;
             actTesting = testing;
 
-            switch (n) {
-                //No Sampling
-                case 1:
-                    sampling = NO_SAMPLING;
-                    break;
-                //Undersampling
-                case 2:
-                    sampling = OVERSAMPLING;
+            try {
+                switch (n) {
+                    //No Sampling
+                    case 1:
+                        sampling = NO_SAMPLING;
+                        break;
+                    //Undersampling
+                    case 2:
+                        sampling = OVERSAMPLING;
 
-                    Resample resample = new Resample();
-                    resample.setNoReplacement(false);
-                    String[] opt1 = new String[]{ "-B", "1.0"};
-                    String[] opt2 = new String[]{ "-Z", Double.toString(computeRatio(stats[0], stats[1], training.size())*100*2)};
-                    resample.setOptions(opt1);
-                    resample.setOptions(opt2);
+                        Resample resample = new Resample();
+                        resample.setNoReplacement(false);
+                        String[] opt1 = new String[]{ "-B", "1.0"};
+                        String[] opt2 = new String[]{ "-Z", Double.toString(computeRatio(stats[0], stats[1], training.size())*100*2)};
+                        resample.setOptions(opt1);
 
-                    resample.setInputFormat(actTraining);
-                    fc.setFilter(resample);
+                        resample.setOptions(opt2);
 
-                    break;
-                //Oversampling
-                case 3:
-                    sampling = UNDERSAMPLING;
+                        resample.setInputFormat(actTraining);
+                        fc.setFilter(resample);
 
-                    SpreadSubsample spreadSubsample = new SpreadSubsample();
-                    String[] opt = new String[]{ "-M", "1.0"};
-                    spreadSubsample.setOptions(opt);
+                        break;
+                    //Oversampling
+                    case 3:
+                        sampling = UNDERSAMPLING;
 
-                    spreadSubsample.setInputFormat(actTraining);
-                    fc.setFilter(spreadSubsample);
+                        SpreadSubsample spreadSubsample = new SpreadSubsample();
+                        String[] opt = new String[]{ "-M", "1.0"};
+                        spreadSubsample.setOptions(opt);
 
-                    break;
-                //SMOTE
-                case 4:
-                    sampling = SMOTE;
+                        spreadSubsample.setInputFormat(actTraining);
+                        fc.setFilter(spreadSubsample);
 
-                    SMOTE smote = new SMOTE();
-                    smote.setInputFormat(actTraining);
-                    fc.setFilter(smote);
+                        break;
+                    //SMOTE
+                    case 4:
+                        sampling = SMOTE;
 
-                    break;
-                default:
-                    System.exit(1);
+                        SMOTE smote = new SMOTE();
+                        smote.setInputFormat(actTraining);
+                        fc.setFilter(smote);
+
+                        break;
+                    default:
+                        System.exit(1);
+                }
+            } catch (Exception e) {
+                e.printStackTrace();
             }
 
             for (int m=1;m<3;m++) {
@@ -184,21 +189,27 @@ public class Measurements {
                     csvWriter.append(",");
 
                     filteredData = computeSelection(actTraining, actTesting);
-                    assert filteredData != null;
 
                     actTraining = filteredData[0];
                     actTesting = filteredData[1];
                 }
 
-                if (!sampling.equals(NO_SAMPLING)) {
-                    fc.buildClassifier(actTraining);
-                    eval = new Evaluation(actTraining);
-                    eval.evaluateModel(fc, actTesting);
-                } else {
-                    method.buildClassifier(actTraining);
-                    eval = new Evaluation(actTraining);
-                    eval.evaluateModel(method, actTesting);
+                eval = null;
+                try {
+                    if (!sampling.equals(NO_SAMPLING)) {
+                        fc.buildClassifier(actTraining);
+                        eval = new Evaluation(actTraining);
+                        eval.evaluateModel(fc, actTesting);
+                    } else {
+                        method.buildClassifier(actTraining);
+                        eval = new Evaluation(actTraining);
+                        eval.evaluateModel(method, actTesting);
+                    }
+                } catch (Exception e) {
+                    e.printStackTrace();
                 }
+
+                assert eval != null;
 
                 csvWriter.append(String.format("%.3f", eval.numTruePositives(0)));
                 csvWriter.append(",");
