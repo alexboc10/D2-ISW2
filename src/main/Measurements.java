@@ -193,7 +193,7 @@ public class Measurements {
 
                     if (sampling.equals(NO_SAMPLING)) {
                         assert method != null;
-                        
+
                         method.buildClassifier(actTraining);
                         eval = new Evaluation(actTraining);
                         eval.evaluateModel(method, actTesting);
@@ -277,7 +277,7 @@ public class Measurements {
         //Implementing WalkForward method
         numReleases = computeValidReleases(project.getReleases());
 
-        try (FileWriter csvEvaluation = new FileWriter("/home/alex/code/intelliJ/projects/D2-ISW2/data/evaluation/" + project.getName() + "_Models.csv")) {
+        try (FileWriter csvEvaluation = new FileWriter(System.getProperty("user.dir") + "/data/evaluation/" + project.getName() + "_Models.csv")) {
             csvEvaluation.append("Dataset");
             csvEvaluation.append(",");
             csvEvaluation.append("#TrainingRelease");
