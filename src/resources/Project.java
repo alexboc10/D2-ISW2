@@ -29,6 +29,7 @@ import static java.time.temporal.ChronoUnit.WEEKS;
 public class Project {
     private static final String WRITING = "Writing on file";
     private static final Logger logger = Logger.getLogger(Project.class.getName());
+    private static final String PROPERTY = "user.dir";
     private final String name;
     private int totalTickets;
     private LocalDate startDate;
@@ -116,7 +117,7 @@ public class Project {
     private int prepareCSV(FileWriter csvFeatures, Release release) {
         int count = 0;
 
-        try(FileWriter csvRelease = new FileWriter(System.getProperty("user.dir") + "/data/releaseSets/" + this.name + "_release_" + release.getIndex() + ".csv")) {
+        try(FileWriter csvRelease = new FileWriter(System.getProperty(PROPERTY) + "/data/releaseSets/" + this.name + "_release_" + release.getIndex() + ".csv")) {
             csvRelease.append("Release");
             csvRelease.append(",");
             csvRelease.append("File");
@@ -205,7 +206,7 @@ public class Project {
             }
 
             csvRelease.flush();
-            csvToArff(System.getProperty("user.dir") + "/data/releaseSets/" + this.name + "_release_" + release.getIndex() + ".csv");
+            csvToArff(System.getProperty(PROPERTY) + "/data/releaseSets/" + this.name + "_release_" + release.getIndex() + ".csv");
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -216,7 +217,7 @@ public class Project {
     public int writeBugginess() {
         int count = 0;
 
-        try(FileWriter csvFeatures = new FileWriter(System.getProperty("user.dir") + "/data/bugginess/" + this.name + "_Bugginess.csv")) {
+        try(FileWriter csvFeatures = new FileWriter(System.getProperty(PROPERTY) + "/data/bugginess/" + this.name + "_Bugginess.csv")) {
 
             logger.log(Level.FINE, WRITING);
 
@@ -264,7 +265,7 @@ public class Project {
     private void writeReleases() {
         logger.log(Level.FINE, WRITING);
 
-        try (FileWriter fileWriter = new FileWriter(System.getProperty("user.dir") + "/data/releases/" + this.name + "_Releases.csv")) {
+        try (FileWriter fileWriter = new FileWriter(System.getProperty(PROPERTY) + "/data/releases/" + this.name + "_Releases.csv")) {
             fileWriter.append("Index,Version ID,Version Name,Date");
             fileWriter.append("\n");
 
@@ -335,7 +336,7 @@ public class Project {
         String[] lines;
         String[] items;
 
-        command.setCommand("./getChanges.sh " + this.name  + " " + commit.getHash(), System.getProperty("user.dir") + "/script");
+        command.setCommand("./getChanges.sh " + this.name  + " " + commit.getHash(), System.getProperty(PROPERTY) + "/script");
         output = command.executeCommand();
 
         lines = output.split("END", 0);
@@ -375,7 +376,7 @@ public class Project {
         String[] lines;
 
         //Listing all the files existing in the considered commit
-        command.setCommand("./getFiles.sh " + this.name  + " " + commit.getHash(), System.getProperty("user.dir") + "/script");
+        command.setCommand("./getFiles.sh " + this.name  + " " + commit.getHash(), System.getProperty(PROPERTY) + "/script");
         output = command.executeCommand();
 
         lines = output.split("END", 0);
