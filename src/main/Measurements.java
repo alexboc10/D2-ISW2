@@ -33,7 +33,8 @@ public class Measurements {
     private static final String SMOTE = "SMOTE";
     private static final String NO_SELECTION = "No Selection";
     private static final String BACKWARD = "Backward Selection";
-    private static final String RELEASES_PATH = System.getProperty("user.dir") + "/data/releaseSets/";
+    private static final String PROPERTY = "user.dir";
+    private static final String RELEASES_PATH = System.getProperty(PROPERTY) + "/data/releaseSets/";
 
     public static void main(String[] args) throws Exception {
 
@@ -277,7 +278,7 @@ public class Measurements {
         //Implementing WalkForward method
         numReleases = computeValidReleases(project.getReleases());
 
-        try (FileWriter csvEvaluation = new FileWriter(System.getProperty("user.dir") + "/data/evaluation/" + project.getName() + "_Models.csv")) {
+        try (FileWriter csvEvaluation = new FileWriter(System.getProperty(PROPERTY) + "/data/evaluation/" + project.getName() + "_Models.csv")) {
             csvEvaluation.append("Dataset");
             csvEvaluation.append(",");
             csvEvaluation.append("#TrainingRelease");
