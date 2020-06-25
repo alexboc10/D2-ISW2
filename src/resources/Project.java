@@ -402,7 +402,7 @@ public class Project {
             myFileItem.setAge(myFile.getAge());
             myFileItem.setNumOfAuthors(myFile.getAuthors().size());
 
-            command.setCommand("cat " + filename + " | wc -l", "/home/alex/code/ISW2/" + this.name);
+            command.setCommand("cat " + filename + " | wc -l", System.getProperty(PROPERTY) + "../" + this.name);
             output = command.executeCommand();
 
             myFileItem.setSize(Integer.parseInt(output));
@@ -463,7 +463,7 @@ public class Project {
 
             logger.log(Level.FINE, "{}", index + "/" + this.commits.size());
 
-            command.setCommand("git log --date=iso-strict --grep=" + ticket.getKey() + " -F --until=" + this.releases.get(this.releases.size() - 1).getDate().toString() + " --pretty=format:'%H'BREAK'%cd'BREAK'%an'END | sort", "/home/alex/code/ISW2/" + this.name);
+            command.setCommand("git log --date=iso-strict --grep=" + ticket.getKey() + " -F --until=" + this.releases.get(this.releases.size() - 1).getDate().toString() + " --pretty=format:'%H'BREAK'%cd'BREAK'%an'END | sort", System.getProperty(PROPERTY) + "../" + this.name);
             output = command.executeCommand();
 
             lines = output.split("END", 0);
